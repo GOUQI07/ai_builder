@@ -1,0 +1,81 @@
+{
+  "chapterId": "chapter_001",
+  "chapterTitle": "灰冠初夜",
+  "nodes": [
+    {
+      "id": "main_001",
+      "chapterId": "chapter_001",
+      "title": "苔阶上的王冠",
+      "body": "旧王在钟声里离世，灰冠被送到你的掌心。主教低声说，城外的饥民正在等待新王的第一句话。",
+      "imageRef": "queen",
+      "nodeKind": 0,
+      "mainlineIndex": 1,
+      "leftChoice": {
+        "id": "bless_crowd",
+        "label": "向饥民开仓",
+        "intent": "安抚民心，牺牲财富换取信仰。",
+        "direction": "left",
+        "nextMainlineNodeId": "main_002",
+        "statHint": { "life": 4, "force": 0, "wealth": -9, "faith": 8 }
+      },
+      "rightChoice": {
+        "id": "call_guards",
+        "label": "召集卫兵",
+        "intent": "以武力维持秩序，触发一个偏离主干的分支。",
+        "direction": "right",
+        "nextMainlineNodeId": "",
+        "statHint": { "life": -3, "force": 8, "wealth": 0, "faith": -4 }
+      }
+    },
+    {
+      "id": "main_002",
+      "chapterId": "chapter_001",
+      "title": "密室里的绿光",
+      "body": "夜半，宫廷术士献上一枚发绿的玻璃匣。里面传来与你同名的声音，问你是否相信命运已经写好。",
+      "imageRef": "oracle",
+      "nodeKind": 0,
+      "mainlineIndex": 2,
+      "leftChoice": {
+        "id": "open_relic",
+        "label": "打开匣子",
+        "intent": "接受神秘力量，触发一个偏离主干的分支。",
+        "direction": "left",
+        "nextMainlineNodeId": "",
+        "statHint": { "life": -6, "force": 4, "wealth": 0, "faith": 5 }
+      },
+      "rightChoice": {
+        "id": "seal_relic",
+        "label": "封存匣子",
+        "intent": "拒绝诱惑，稳定地进入下一个主干节点。",
+        "direction": "right",
+        "nextMainlineNodeId": "main_003",
+        "statHint": { "life": 3, "force": -2, "wealth": 2, "faith": 4 }
+      }
+    },
+    {
+      "id": "main_003",
+      "chapterId": "chapter_001",
+      "title": "城门前的黎明",
+      "body": "天亮时，邻国使者抵达破旧城门。他的车队带着粮食，也带着一份要求你让出边境矿山的盟约。",
+      "imageRef": "gate",
+      "nodeKind": 0,
+      "mainlineIndex": 3,
+      "leftChoice": {
+        "id": "sign_treaty",
+        "label": "签下盟约",
+        "intent": "用财富和和平换取生命。",
+        "direction": "left",
+        "nextMainlineNodeId": "",
+        "statHint": { "life": 8, "force": -4, "wealth": -8, "faith": 2 }
+      },
+      "rightChoice": {
+        "id": "reject_treaty",
+        "label": "拒绝使者",
+        "intent": "保住矿山，但战争阴影逼近。",
+        "direction": "right",
+        "nextMainlineNodeId": "",
+        "statHint": { "life": -6, "force": 8, "wealth": 7, "faith": -6 }
+      }
+    }
+  ]
+}
