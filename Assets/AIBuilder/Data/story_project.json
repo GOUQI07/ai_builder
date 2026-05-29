@@ -1,0 +1,663 @@
+{
+  "projectId": "pasted_source_58f33b2f",
+  "title": "AI Builder Story Project",
+  "sourceName": "Pasted Source",
+  "targetChapterCount": 5,
+  "minAnchorsPerChapter": 2,
+  "maxAnchorsPerChapter": 3,
+  "chunkCharacterLimit": 6000,
+  "enableDefaultPanorama": true,
+  "defaultPanoramaPrompt": "Story-wide establishing background panorama for a royal decision-card UI. Default far-view world before any specific branch: distant seat of power, roads, horizon, and environmental symbols implied by the story; no close-up character focus. Story identity: AI Builder Story Project, Pasted Source. Primary locations: 《黑塔邮差》. Source scene hints: 《黑塔邮差》. Use a wide layered horizon and enough calm negative space behind the central card UI.",
+  "defaultPanoramaPath": "C:/Users/Administrator/AppData/LocalLow/DefaultCompany/ai_builder\\AIBuilder\\DefaultPanoramas\\pasted_source_58f33b2f_default_pano_style_v2.png",
+  "defaultPanoramaStatus": "Generated",
+  "defaultPanoramaError": "",
+  "createdAt": "2026-05-29T12:49:57.8496720Z",
+  "updatedAt": "2026-05-29T21:58:28.5806572Z",
+  "sourceChunks": [
+    {
+      "id": "chunk_001",
+      "index": 1,
+      "titleGuess": "《黑塔邮差》",
+      "text": "《黑塔邮差》\n\n黑塔城建在一片永不融化的雪原上。城中央有一座高塔，塔顶没有窗，却每晚都会亮起蓝色灯火。城里人说，那盏灯不是给活人看的，而是给迷路的亡者指路。\n\n少年邮差沈砚负责在暴雪夜送信。他的师父老柯教过他三条规矩：第一，午夜后不要靠近黑塔；第二，不要拆开没有署名的信；第三，如果听见雪地里有人喊你的名字，千万不要回头。\n\n冬至前夜，沈砚收到一封黑色火漆的信。信封没有署名，收信人却写着“塔顶的第十三任守灯人”。老柯看见信后脸色大变，命令沈砚把它丢进炉火。可炉火刚碰到信角，整间邮局的钟表同时停在午夜十二点。\n\n同一刻，黑塔的蓝灯熄灭了。\n\n城里的亡者开始失去方向。有人在自家门口看见死去多年的亲人，有人在井边听见婴儿哭声，还有守夜士兵声称雪地里站满了没有脚印的人。执政官白岚宣布封锁黑塔，并抓捕所有邮差，因为古老契约规定：只有邮差能把消息送进塔顶。\n\n沈砚不相信师父只是害怕。他偷偷拆开黑信，发现里面只有一句话：若灯熄灭，请把我的名字还给我。落款是“顾遥”。这个名字沈砚从没听过，但老柯的旧怀表里，正藏着一张褪色照片，照片背面也写着顾遥二字。\n\n为了查清真相，沈砚在暴雪中前往黑塔。途中他遇见了盲眼修钟师阮星。阮星能听见钟表里残留的时间，她说黑塔不是灯塔，而是一座封存记忆的监牢。每一任守灯人都会被抹去名字，换来城市二十年的安宁。\n\n黑塔门前，老柯拦住沈砚。老柯承认顾遥曾是他的搭档，也是第十二任守灯人。当年他亲手送出最后一封信，把顾遥的名字交给黑塔，才让雪原上的亡者平息。如今灯熄灭，说明塔里的某个人开始反抗。\n\n沈砚必须选择：把黑信交给执政官白岚，换取城市暂时安全；跟随阮星闯入黑塔，寻找顾遥留下的真相；或相信老柯，重新完成邮差契约，把某个名字送进塔顶。\n\n暴雪越来越大，城中所有钟表开始倒转。蓝灯重新闪烁了一下，雪地里传来一个陌生又熟悉的声音，轻轻喊出了沈砚的名字。",
+      "summary": "Mock summary for 《黑塔邮差》: 《黑塔邮差》\n\n黑塔城建在一片永不融化的雪原上。城中央有一座高塔，塔顶没有窗，却每晚都会亮起蓝色灯火。城里人说，那盏灯不是给活人看的，而是给迷路的亡者指路。\n\n少年邮差沈砚负责在暴雪夜送信。他的师父老柯教过他三条规矩：第一，午夜后不要靠近黑",
+      "status": "Summarized",
+      "error": ""
+    }
+  ],
+  "summaries": [
+    {
+      "chunkId": "chunk_001",
+      "chunkIndex": 1,
+      "title": "《黑塔邮差》",
+      "summary": "Mock summary for 《黑塔邮差》: 《黑塔邮差》\n\n黑塔城建在一片永不融化的雪原上。城中央有一座高塔，塔顶没有窗，却每晚都会亮起蓝色灯火。城里人说，那盏灯不是给活人看的，而是给迷路的亡者指路。\n\n少年邮差沈砚负责在暴雪夜送信。他的师父老柯教过他三条规矩：第一，午夜后不要靠近黑",
+      "characters": [
+        "Protagonist",
+        "Rival"
+      ],
+      "locations": [
+        "Court"
+      ],
+      "conflicts": [
+        "Power and trust"
+      ],
+      "timelineNotes": [
+        "Source chunk 1"
+      ],
+      "status": "Draft"
+    }
+  ],
+  "chapters": [
+    {
+      "chapterId": "ch001",
+      "chapterIndex": 1,
+      "chapterTitle": "雪原上的蓝灯",
+      "summary": "永冻雪原中矗立着黑塔城，城心高塔每夜亮起蓝色灯火，被传为亡者的路标。少年邮差沈砚在暴雪中送信，师父老柯反复叮嘱他遵守夜邮规矩：午夜之后远离黑塔，不追问无名信件，不替收信人拆封。",
+      "sourceChunkRefs": [
+        "chunk_001"
+      ],
+      "toneTags": [
+        "冷峻",
+        "悬疑",
+        "奇幻"
+      ],
+      "status": "Approved",
+      "anchors": [
+        {
+          "nodeId": "ch001_anchor001",
+          "anchorIndex": 1,
+          "title": "雪原上的蓝灯 Anchor 1",
+          "body": "A stable adapted beat for 雪原上的蓝灯. The player faces pressure, cost, and a clear route back to the mainline.",
+          "imageRef": "",
+          "imagePrompt": "symbolic medieval low-poly decision card, 雪原上的蓝灯, anchor 1, flat silhouettes, muted red gold parchment palette",
+          "stabilityNote": "Mock anchor keeps the mainline recoverable.",
+          "mainlineChoice": "left",
+          "status": "Approved",
+          "leftChoice": {
+            "id": "continue_mainline",
+            "label": "Continue",
+            "intent": "Follow the required mainline anchor.",
+            "direction": "left",
+            "nextMainlineNodeId": "",
+            "statHint": {
+              "life": 2,
+              "force": 0,
+              "wealth": -1,
+              "faith": 1
+            }
+          },
+          "rightChoice": {
+            "id": "deviate_branch",
+            "label": "Deviate",
+            "intent": "Let AI generate a side branch before returning.",
+            "direction": "right",
+            "nextMainlineNodeId": "",
+            "statHint": {
+              "life": -2,
+              "force": 2,
+              "wealth": 0,
+              "faith": -1
+            }
+          }
+        },
+        {
+          "nodeId": "ch001_anchor002",
+          "anchorIndex": 2,
+          "title": "雪原上的蓝灯 Anchor 2",
+          "body": "A stable adapted beat for 雪原上的蓝灯. The player faces pressure, cost, and a clear route back to the mainline.",
+          "imageRef": "",
+          "imagePrompt": "symbolic medieval low-poly decision card, 雪原上的蓝灯, anchor 2, flat silhouettes, muted red gold parchment palette",
+          "stabilityNote": "Mock anchor keeps the mainline recoverable.",
+          "mainlineChoice": "left",
+          "status": "Approved",
+          "leftChoice": {
+            "id": "continue_mainline",
+            "label": "Continue",
+            "intent": "Follow the required mainline anchor.",
+            "direction": "left",
+            "nextMainlineNodeId": "",
+            "statHint": {
+              "life": 2,
+              "force": 0,
+              "wealth": -1,
+              "faith": 1
+            }
+          },
+          "rightChoice": {
+            "id": "deviate_branch",
+            "label": "Deviate",
+            "intent": "Let AI generate a side branch before returning.",
+            "direction": "right",
+            "nextMainlineNodeId": "",
+            "statHint": {
+              "life": -2,
+              "force": 2,
+              "wealth": 0,
+              "faith": -1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "chapterId": "ch002",
+      "chapterIndex": 2,
+      "chapterTitle": "午夜后的投递",
+      "summary": "某个暴雪夜，沈砚收到一封没有署名、却指定送往黑塔方向的信。风雪封路，城中钟声又已越过午夜，他本该退回邮局，却发现信封上浮现出只有邮差才能看见的蓝色邮印。",
+      "sourceChunkRefs": [
+        "chunk_001"
+      ],
+      "toneTags": [
+        "紧张",
+        "神秘",
+        "冒险"
+      ],
+      "status": "Approved",
+      "anchors": [
+        {
+          "nodeId": "ch002_anchor_01",
+          "anchorIndex": 1,
+          "title": "蓝印显现",
+          "body": "午夜钟声刚落，邮局炉火忽明忽暗。沈砚正要把无名信退回木柜，封口却浮起一枚蓝色邮印，像冰下的眼睛，指向城北黑塔。",
+          "imageRef": "",
+          "imagePrompt": "Square low-poly royal decision card, flat medieval silhouettes of a lone postman in a snowbound post office holding a glowing blue-stamped letter, distant black tower icon beyond a window, limited muted red/gold/parchment palette with cold blue accent, graphic UI-friendly composition, no realism.",
+          "stabilityNote": "确认任务异常来源，并把目标稳定指向黑塔。",
+          "mainlineChoice": "left",
+          "status": "Approved",
+          "leftChoice": {
+            "id": "continue_mainline",
+            "label": "收起信件，前往北门",
+            "intent": "接受蓝印指引，推动主线向黑塔方向展开。",
+            "direction": "left",
+            "nextMainlineNodeId": "",
+            "statHint": {
+              "life": 0,
+              "force": 0,
+              "wealth": 0,
+              "faith": 5
+            }
+          },
+          "rightChoice": {
+            "id": "deviate_branch",
+            "label": "查阅旧邮差手册",
+            "intent": "暂缓出发，寻找蓝色邮印的来历与禁忌。",
+            "direction": "right",
+            "nextMainlineNodeId": "",
+            "statHint": {
+              "life": 0,
+              "force": 0,
+              "wealth": 0,
+              "faith": 3
+            }
+          }
+        },
+        {
+          "nodeId": "ch002_anchor_02",
+          "anchorIndex": 2,
+          "title": "封雪北门",
+          "body": "北门被雪埋到门栓，守夜兵缩在火盆旁，声称今夜无人准出。沈砚亮出邮差铜牌时，城墙上却传来三下空洞敲击。",
+          "imageRef": "",
+          "imagePrompt": "Square low-poly royal decision card, flat medieval silhouettes of a snow-buried city gate, a postman showing a copper badge to a guard beside a brazier, ominous black tower shadow in the distance, limited muted red/gold/parchment palette, graphic UI-friendly composition, no realism.",
+          "stabilityNote": "设置出城阻碍，并引入来自城墙外的神秘信号。",
+          "mainlineChoice": "right",
+          "status": "Approved",
+          "leftChoice": {
+            "id": "deviate_branch",
+            "label": "说服守夜兵同行",
+            "intent": "尝试争取援手，可能开启城防与守夜兵支线。",
+            "direction": "left",
+            "nextMainlineNodeId": "",
+            "statHint": {
+              "life": 5,
+              "force": 0,
+              "wealth": -2,
+              "faith": 0
+            }
+          },
+          "rightChoice": {
+            "id": "continue_mainline",
+            "label": "循敲击声翻越侧墙",
+            "intent": "绕开北门封锁，继续向黑塔推进。",
+            "direction": "right",
+            "nextMainlineNodeId": "",
+            "statHint": {
+              "life": -5,
+              "force": 3,
+              "wealth": 0,
+              "faith": 0
+            }
+          }
+        },
+        {
+          "nodeId": "ch002_anchor_03",
+          "anchorIndex": 3,
+          "title": "雪路灯影",
+          "body": "城外雪原没有车辙，只有一排倒插在雪里的黑色路灯。每当沈砚靠近，灯中便亮起蓝火，照出信封上逐渐清晰的收件名。",
+          "imageRef": "",
+          "imagePrompt": "Square low-poly royal decision card, flat medieval silhouettes of a postman walking across a blizzard plain toward a black tower, inverted black lantern posts glowing blue, sealed letter motif, limited muted red/gold/parchment palette with blue flame accents, graphic UI-friendly composition, no realism.",
+          "stabilityNote": "把旅程推进到城外雪原，并揭示收件人信息即将浮现。",
+          "mainlineChoice": "left",
+          "status": "Approved",
+          "leftChoice": {
+            "id": "continue_mainline",
+            "label": "沿蓝火继续前行",
+            "intent": "跟随邮印与路灯指示，逼近黑塔入口。",
+            "direction": "left",
+            "nextMainlineNodeId": "",
+            "statHint": {
+              "life": -3,
+              "force": 0,
+              "wealth": 0,
+              "faith": 6
+            }
+          },
+          "rightChoice": {
+            "id": "deviate_branch",
+            "label": "拔起一盏黑路灯",
+            "intent": "调查路灯机关，可能触发雪原异象分支。",
+            "direction": "right",
+            "nextMainlineNodeId": "",
+            "statHint": {
+              "life": -4,
+              "force": 4,
+              "wealth": 0,
+              "faith": -2
+            }
+          }
+        }
+      ]
+    },
+    {
+      "chapterId": "ch003",
+      "chapterIndex": 3,
+      "chapterTitle": "师父的旧规矩",
+      "summary": "沈砚想起老柯曾说，黑塔的规矩不是为了吓唬新人，而是为了让活人留在活人的路上。可当他准备折返时，雪地里出现一串反向脚印，像是有人从塔中走出，又像是某个亡者正借信寻找归途。",
+      "sourceChunkRefs": [
+        "chunk_001"
+      ],
+      "toneTags": [
+        "诡谲",
+        "阴影",
+        "抉择"
+      ],
+      "status": "Approved",
+      "anchors": [
+        {
+          "nodeId": "ch003_anchor_01",
+          "anchorIndex": 1,
+          "title": "旧规矩",
+          "body": "沈砚在塔门前停住，指尖还压着那封潮冷的信。老柯的话忽然回响：黑塔的规矩不是给死人听的，是给活人留路的。风雪擦过石阶，像有人在暗处轻轻催他回头。",
+          "imageRef": "",
+          "imagePrompt": "Square low-poly royal decision card, flat medieval silhouettes of a lone traveler before a black tower gate in snow, muted red gold parchment palette, graphic UI-friendly composition, no realism, symbolic footprints and sealed letter, dramatic simple shapes",
+          "stabilityNote": "确立师父旧规矩与折返动机，作为本章主线起点。",
+          "mainlineChoice": "left",
+          "status": "Approved",
+          "leftChoice": {
+            "id": "continue_mainline",
+            "label": "按老柯规矩折返",
+            "intent": "沈砚暂不入塔，沿来路确认自己仍在活人的路上。",
+            "direction": "left",
+            "nextMainlineNodeId": "",
+            "statHint": {
+              "life": 5,
+              "force": 0,
+              "wealth": 0,
+              "faith": 3
+            }
+          },
+          "rightChoice": {
+            "id": "deviate_branch",
+            "label": "立刻推门入塔",
+            "intent": "沈砚违背旧规矩，提前进入黑塔探查信的来源。",
+            "direction": "right",
+            "nextMainlineNodeId": "",
+            "statHint": {
+              "life": -6,
+              "force": 2,
+              "wealth": 0,
+              "faith": -3
+            }
+          }
+        },
+        {
+          "nodeId": "ch003_anchor_02",
+          "anchorIndex": 2,
+          "title": "反向脚印",
+          "body": "他刚退下三级石阶，雪地里便浮出一串脚印，方向与他的来路相反。那些印子从塔门延伸到荒原，深浅整齐，仿佛有人刚从黑塔走出，却没有留下半点体温。",
+          "imageRef": "",
+          "imagePrompt": "Square low-poly royal decision card, flat medieval silhouettes, black tower doorway, reverse footprints crossing snow toward parchment horizon, muted red gold parchment palette, graphic UI-friendly composition, no realism, eerie symbolic decision scene",
+          "stabilityNote": "引出核心异象：反向脚印，推动沈砚在守规与追踪间抉择。",
+          "mainlineChoice": "right",
+          "status": "Approved",
+          "leftChoice": {
+            "id": "deviate_branch",
+            "label": "抹去脚印保命",
+            "intent": "沈砚选择破坏线索，优先避免被塔中之物循迹盯上。",
+            "direction": "left",
+            "nextMainlineNodeId": "",
+            "statHint": {
+              "life": 4,
+              "force": 0,
+              "wealth": 0,
+              "faith": -4
+            }
+          },
+          "rightChoice": {
+            "id": "continue_mainline",
+            "label": "沿反向脚印追去",
+            "intent": "沈砚跟随脚印离开塔门，寻找那个从塔中走出的存在。",
+            "direction": "right",
+            "nextMainlineNodeId": "",
+            "statHint": {
+              "life": -3,
+              "force": 0,
+              "wealth": 0,
+              "faith": 5
+            }
+          }
+        },
+        {
+          "nodeId": "ch003_anchor_03",
+          "anchorIndex": 3,
+          "title": "信中归途",
+          "body": "脚印尽头埋着一枚旧铜扣，正是老柯衣襟上的样式。信纸在沈砚怀里微微发热，墨迹却一点点变淡，像有个亡者借他的手，试着把回家的路重新写出来。",
+          "imageRef": "",
+          "imagePrompt": "Square low-poly royal decision card, flat medieval silhouettes of a hand holding fading letter and old copper button in snow, distant black tower, muted red gold parchment palette, graphic UI-friendly composition, no realism, medieval symbolic UI card",
+          "stabilityNote": "将信、老柯与亡者归途相连，稳定进入下一章调查线。",
+          "mainlineChoice": "left",
+          "status": "Approved",
+          "leftChoice": {
+            "id": "continue_mainline",
+            "label": "收起铜扣继续查",
+            "intent": "沈砚保留证物，准备查明老柯旧物为何出现在脚印尽头。",
+            "direction": "left",
+            "nextMainlineNodeId": "",
+            "statHint": {
+              "life": 0,
+              "force": 0,
+              "wealth": 0,
+              "faith": 4
+            }
+          },
+          "rightChoice": {
+            "id": "deviate_branch",
+            "label": "把信埋回雪下",
+            "intent": "沈砚尝试切断亡者借信归来的可能，换取暂时安宁。",
+            "direction": "right",
+            "nextMainlineNodeId": "",
+            "statHint": {
+              "life": 3,
+              "force": 0,
+              "wealth": 0,
+              "faith": -5
+            }
+          }
+        }
+      ]
+    },
+    {
+      "chapterId": "ch004",
+      "chapterIndex": 4,
+      "chapterTitle": "无窗高塔",
+      "summary": "沈砚最终靠近黑塔，发现塔顶虽无窗，蓝光却像呼吸般在石缝间闪烁。信件在他手中变得冰冷，封口处传出轻微敲击声，仿佛里面装的不是纸，而是一段等待被送达的记忆。",
+      "sourceChunkRefs": [
+        "chunk_001"
+      ],
+      "toneTags": [
+        "压迫",
+        "奇异",
+        "探索"
+      ],
+      "status": "Approved",
+      "anchors": [
+        {
+          "nodeId": "ch004_anchor_01",
+          "anchorIndex": 1,
+          "title": "塔下蓝息",
+          "body": "沈砚抵达黑塔脚下，石壁没有门环也没有窗，只在裂缝里吐出微弱蓝光。信件贴着掌心变冷，封口内传来三下敲击，像有人在纸后等他回应。",
+          "imageRef": "",
+          "imagePrompt": "Square low-poly royal decision card, flat medieval silhouettes of a lone traveler before a windowless black tower, blue glow breathing through stone cracks, sealed letter in hand, limited muted red gold parchment palette, graphic UI-friendly composition, no realism",
+          "stabilityNote": "主线锚点固定沈砚抵达黑塔，并确认信件出现异常敲击。",
+          "mainlineChoice": "left",
+          "status": "Approved",
+          "leftChoice": {
+            "id": "continue_mainline",
+            "label": "贴近石缝倾听",
+            "intent": "继续调查蓝光与敲击的来源，推进黑塔主线。",
+            "direction": "left",
+            "nextMainlineNodeId": "",
+            "statHint": {
+              "life": 0,
+              "force": 0,
+              "wealth": 0,
+              "faith": 2
+            }
+          },
+          "rightChoice": {
+            "id": "deviate_branch",
+            "label": "先绕塔一周",
+            "intent": "寻找隐藏入口或旁支线索，可能偏离当前节奏。",
+            "direction": "right",
+            "nextMainlineNodeId": "",
+            "statHint": {
+              "life": 0,
+              "force": 0,
+              "wealth": 0,
+              "faith": 0
+            }
+          }
+        },
+        {
+          "nodeId": "ch004_anchor_02",
+          "anchorIndex": 2,
+          "title": "冷信低语",
+          "body": "他把信举到蓝光前，蜡封下浮出细小字痕，又迅速沉没。塔身深处响起锁链拖行声，仿佛某段被遗忘的记忆正被牵到门后。",
+          "imageRef": "",
+          "imagePrompt": "Square low-poly royal decision card, flat medieval silhouettes, close view of a sealed letter glowing cold blue before a massive black tower wall, faint chains and hidden doorway shapes, limited muted red gold parchment palette, graphic UI-friendly composition, no realism",
+          "stabilityNote": "主线锚点揭示信件与塔内记忆存在联系，但不提前揭露真相。",
+          "mainlineChoice": "right",
+          "status": "Approved",
+          "leftChoice": {
+            "id": "deviate_branch",
+            "label": "撬开蜡封",
+            "intent": "强行读取信中内容，引出风险分支或记忆反噬。",
+            "direction": "left",
+            "nextMainlineNodeId": "",
+            "statHint": {
+              "life": -2,
+              "force": 1,
+              "wealth": 0,
+              "faith": -1
+            }
+          },
+          "rightChoice": {
+            "id": "continue_mainline",
+            "label": "按住封口等待",
+            "intent": "遵循信件的异常节奏，等待黑塔给出回应。",
+            "direction": "right",
+            "nextMainlineNodeId": "",
+            "statHint": {
+              "life": 0,
+              "force": 0,
+              "wealth": 0,
+              "faith": 3
+            }
+          }
+        },
+        {
+          "nodeId": "ch004_anchor_03",
+          "anchorIndex": 3,
+          "title": "无门之门",
+          "body": "蓝光忽然在石缝间连成一圈，勾出一扇没有把手的门。沈砚听见自己的名字从塔内传来，声音苍老而熟悉，像多年后归来的回声。",
+          "imageRef": "",
+          "imagePrompt": "Square low-poly royal decision card, flat medieval silhouettes of a glowing door outline appearing on a windowless black tower, lone figure holding sealed letter, eerie blue cracks, limited muted red gold parchment palette, graphic UI-friendly composition, no realism",
+          "stabilityNote": "主线锚点建立黑塔入口显现，并以呼名声推动进入决定。",
+          "mainlineChoice": "left",
+          "status": "Approved",
+          "leftChoice": {
+            "id": "continue_mainline",
+            "label": "把信贴上门缝",
+            "intent": "用信件回应塔内呼唤，开启进入黑塔的主线。",
+            "direction": "left",
+            "nextMainlineNodeId": "",
+            "statHint": {
+              "life": 0,
+              "force": 0,
+              "wealth": 0,
+              "faith": 4
+            }
+          },
+          "rightChoice": {
+            "id": "deviate_branch",
+            "label": "后退呼喊对方",
+            "intent": "尝试在门外确认声音身份，生成对话或陷阱分支。",
+            "direction": "right",
+            "nextMainlineNodeId": "",
+            "statHint": {
+              "life": 0,
+              "force": 0,
+              "wealth": 0,
+              "faith": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "chapterId": "ch005",
+      "chapterIndex": 5,
+      "chapterTitle": "亡者的地址",
+      "summary": "当沈砚站在塔门前，他必须决定是遵守老柯的禁令，还是完成邮差的职责。蓝灯照亮信封背面，显出一个不属于城中任何街巷的地址，也暗示黑塔城的夜邮制度隐藏着连接生死的真正使命。",
+      "sourceChunkRefs": [
+        "chunk_001"
+      ],
+      "toneTags": [
+        "悬念",
+        "命运",
+        "超自然"
+      ],
+      "status": "Approved",
+      "anchors": [
+        {
+          "nodeId": "ch005_anchor_01",
+          "anchorIndex": 1,
+          "title": "塔门蓝灯",
+          "body": "沈砚站在黑塔门前，老柯的禁令还压在耳边。蓝灯忽然照亮信封背面，陌生地址像从纸里浮起，不在任何街巷，却写着收信人的全名。",
+          "imageRef": "",
+          "imagePrompt": "Square low-poly royal decision card, flat medieval silhouettes of a young courier before a black tower gate, blue lantern glow on an envelope, limited muted red gold parchment palette, graphic UI-friendly composition, no realism",
+          "stabilityNote": "固定揭示亡者地址，确保主线进入黑塔门前的抉择。",
+          "mainlineChoice": "left",
+          "status": "Approved",
+          "leftChoice": {
+            "id": "continue_mainline",
+            "label": "遵守邮差职责",
+            "intent": "无视禁令，按地址投递这封信。",
+            "direction": "left",
+            "nextMainlineNodeId": "",
+            "statHint": {
+              "life": -2,
+              "force": 0,
+              "wealth": 0,
+              "faith": 5
+            }
+          },
+          "rightChoice": {
+            "id": "deviate_branch",
+            "label": "转身找老柯",
+            "intent": "先回去质问老柯地址的真相。",
+            "direction": "right",
+            "nextMainlineNodeId": "",
+            "statHint": {
+              "life": 1,
+              "force": 0,
+              "wealth": 0,
+              "faith": -2
+            }
+          }
+        },
+        {
+          "nodeId": "ch005_anchor_02",
+          "anchorIndex": 2,
+          "title": "无街之址",
+          "body": "信封上的字迹在冷光中变换，最后停成“第七碑后，未葬者门”。沈砚想起夜邮册缺失的一页，忽然明白这趟差事不是送往城中人。",
+          "imageRef": "",
+          "imagePrompt": "Square low-poly royal decision card, flat medieval silhouettes of parchment map and grave markers behind a courier, glowing impossible address on envelope, limited muted red gold parchment palette, graphic UI-friendly composition, no realism",
+          "stabilityNote": "稳定说明地址指向亡者领域，连接夜邮制度的隐藏使命。",
+          "mainlineChoice": "right",
+          "status": "Approved",
+          "leftChoice": {
+            "id": "deviate_branch",
+            "label": "查夜邮册残页",
+            "intent": "暂缓投递，寻找缺失页的线索。",
+            "direction": "left",
+            "nextMainlineNodeId": "",
+            "statHint": {
+              "life": 0,
+              "force": 0,
+              "wealth": -1,
+              "faith": 1
+            }
+          },
+          "rightChoice": {
+            "id": "continue_mainline",
+            "label": "前往第七碑",
+            "intent": "接受地址指引，去寻找未葬者门。",
+            "direction": "right",
+            "nextMainlineNodeId": "",
+            "statHint": {
+              "life": -3,
+              "force": 0,
+              "wealth": 0,
+              "faith": 6
+            }
+          }
+        },
+        {
+          "nodeId": "ch005_anchor_03",
+          "anchorIndex": 3,
+          "title": "门内回声",
+          "body": "塔门缝里传来轻轻叩响，像有人在门后接信。沈砚把手贴上冰冷铁环，听见自己的名字被亡者念出，夜邮真正的路终于向他开启。",
+          "imageRef": "",
+          "imagePrompt": "Square low-poly royal decision card, flat medieval silhouettes of a courier touching an iron ring on a dark tower door, ghostly hands and envelope shape beyond the crack, limited muted red gold parchment palette, graphic UI-friendly composition, no realism",
+          "stabilityNote": "固定开启生死通道，为后续进入亡者投递线服务。",
+          "mainlineChoice": "left",
+          "status": "Approved",
+          "leftChoice": {
+            "id": "continue_mainline",
+            "label": "推门递信",
+            "intent": "直面门后的亡者，完成第一次真正夜邮。",
+            "direction": "left",
+            "nextMainlineNodeId": "",
+            "statHint": {
+              "life": -4,
+              "force": 0,
+              "wealth": 0,
+              "faith": 8
+            }
+          },
+          "rightChoice": {
+            "id": "deviate_branch",
+            "label": "留下记号再进",
+            "intent": "先在塔门外做标记，防止自己迷失。",
+            "direction": "right",
+            "nextMainlineNodeId": "",
+            "statHint": {
+              "life": 2,
+              "force": 0,
+              "wealth": 0,
+              "faith": -1
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "job": {
+    "isRunning": false,
+    "stage": "Idle",
+    "message": "ch005",
+    "completed": 5,
+    "total": 5,
+    "lastError": "",
+    "updatedAt": "2026-05-29T21:57:56.7218674Z"
+  }
+}

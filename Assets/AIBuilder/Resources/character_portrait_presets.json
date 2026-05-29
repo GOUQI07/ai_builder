@@ -1,0 +1,28 @@
+{
+  "presets": [
+    {
+      "id": "protagonist",
+      "displayName": "Protagonist",
+      "aliases": [
+        "Protagonist"
+      ],
+      "description": "Protagonist",
+      "imagePrompt": "Character notes: Protagonist. Protagonist",
+      "imageRef": "C:/Users/Administrator/AppData/LocalLow/DefaultCompany/ai_builder\\AIBuilder\\PortraitPresets\\style_v2\\protagonist.png",
+      "spriteKey": "branch",
+      "priority": 100
+    },
+    {
+      "id": "rival",
+      "displayName": "Rival",
+      "aliases": [
+        "Rival"
+      ],
+      "description": "Rival",
+      "imagePrompt": "Character notes: Rival. Rival",
+      "imageRef": "C:/Users/Administrator/AppData/LocalLow/DefaultCompany/ai_builder\\AIBuilder\\PortraitPresets\\style_v2\\rival.png",
+      "spriteKey": "branch",
+      "priority": 98
+    }
+  ]
+}

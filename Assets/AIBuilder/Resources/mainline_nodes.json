@@ -1,81 +1,500 @@
 {
-  "chapterId": "chapter_001",
-  "chapterTitle": "灰冠初夜",
+  "chapterId": "pasted_source_58f33b2f",
+  "chapterTitle": "AI Builder Story Project",
+  "enableDefaultPanorama": true,
+  "defaultPanoramaPrompt": "Story-wide establishing background panorama for a royal decision-card UI. Default far-view world before any specific branch: distant seat of power, roads, horizon, and environmental symbols implied by the story; no close-up character focus. Story identity: AI Builder Story Project, Pasted Source. Primary locations: 《黑塔邮差》. Source scene hints: 《黑塔邮差》. Use a wide layered horizon and enough calm negative space behind the central card UI.",
+  "defaultPanoramaPath": "C:/Users/Administrator/AppData/LocalLow/DefaultCompany/ai_builder\\AIBuilder\\DefaultPanoramas\\pasted_source_58f33b2f_default_pano_style_v2.png",
+  "defaultPanoramaStatus": "Generated",
   "nodes": [
     {
-      "id": "main_001",
-      "chapterId": "chapter_001",
-      "title": "苔阶上的王冠",
-      "body": "旧王在钟声里离世，灰冠被送到你的掌心。主教低声说，城外的饥民正在等待新王的第一句话。",
+      "id": "ch001_anchor001",
+      "chapterId": "ch001",
+      "title": "雪原上的蓝灯 Anchor 1",
+      "body": "A stable adapted beat for 雪原上的蓝灯. The player faces pressure, cost, and a clear route back to the mainline.",
       "imageRef": "queen",
       "nodeKind": 0,
-      "mainlineIndex": 1,
       "leftChoice": {
-        "id": "bless_crowd",
-        "label": "向饥民开仓",
-        "intent": "安抚民心，牺牲财富换取信仰。",
+        "id": "continue_mainline",
+        "label": "Continue",
+        "intent": "Follow the required mainline anchor.",
         "direction": "left",
-        "nextMainlineNodeId": "main_002",
-        "statHint": { "life": 4, "force": 0, "wealth": -9, "faith": 8 }
+        "nextMainlineNodeId": "ch001_anchor002",
+        "statHint": {
+          "life": 2,
+          "force": 0,
+          "wealth": -1,
+          "faith": 1
+        }
       },
       "rightChoice": {
-        "id": "call_guards",
-        "label": "召集卫兵",
-        "intent": "以武力维持秩序，触发一个偏离主干的分支。",
+        "id": "deviate_branch",
+        "label": "Deviate",
+        "intent": "Let AI generate a side branch before returning.",
         "direction": "right",
         "nextMainlineNodeId": "",
-        "statHint": { "life": -3, "force": 8, "wealth": 0, "faith": -4 }
-      }
+        "statHint": {
+          "life": -2,
+          "force": 2,
+          "wealth": 0,
+          "faith": -1
+        }
+      },
+      "mainlineIndex": 1
     },
     {
-      "id": "main_002",
-      "chapterId": "chapter_001",
-      "title": "密室里的绿光",
-      "body": "夜半，宫廷术士献上一枚发绿的玻璃匣。里面传来与你同名的声音，问你是否相信命运已经写好。",
+      "id": "ch001_anchor002",
+      "chapterId": "ch001",
+      "title": "雪原上的蓝灯 Anchor 2",
+      "body": "A stable adapted beat for 雪原上的蓝灯. The player faces pressure, cost, and a clear route back to the mainline.",
       "imageRef": "oracle",
       "nodeKind": 0,
-      "mainlineIndex": 2,
       "leftChoice": {
-        "id": "open_relic",
-        "label": "打开匣子",
-        "intent": "接受神秘力量，触发一个偏离主干的分支。",
+        "id": "continue_mainline",
+        "label": "Continue",
+        "intent": "Follow the required mainline anchor.",
         "direction": "left",
-        "nextMainlineNodeId": "",
-        "statHint": { "life": -6, "force": 4, "wealth": 0, "faith": 5 }
+        "nextMainlineNodeId": "ch002_anchor_01",
+        "statHint": {
+          "life": 2,
+          "force": 0,
+          "wealth": -1,
+          "faith": 1
+        }
       },
       "rightChoice": {
-        "id": "seal_relic",
-        "label": "封存匣子",
-        "intent": "拒绝诱惑，稳定地进入下一个主干节点。",
+        "id": "deviate_branch",
+        "label": "Deviate",
+        "intent": "Let AI generate a side branch before returning.",
         "direction": "right",
-        "nextMainlineNodeId": "main_003",
-        "statHint": { "life": 3, "force": -2, "wealth": 2, "faith": 4 }
-      }
+        "nextMainlineNodeId": "",
+        "statHint": {
+          "life": -2,
+          "force": 2,
+          "wealth": 0,
+          "faith": -1
+        }
+      },
+      "mainlineIndex": 2
     },
     {
-      "id": "main_003",
-      "chapterId": "chapter_001",
-      "title": "城门前的黎明",
-      "body": "天亮时，邻国使者抵达破旧城门。他的车队带着粮食，也带着一份要求你让出边境矿山的盟约。",
+      "id": "ch002_anchor_01",
+      "chapterId": "ch002",
+      "title": "蓝印显现",
+      "body": "午夜钟声刚落，邮局炉火忽明忽暗。沈砚正要把无名信退回木柜，封口却浮起一枚蓝色邮印，像冰下的眼睛，指向城北黑塔。",
       "imageRef": "gate",
       "nodeKind": 0,
-      "mainlineIndex": 3,
       "leftChoice": {
-        "id": "sign_treaty",
-        "label": "签下盟约",
-        "intent": "用财富和和平换取生命。",
+        "id": "continue_mainline",
+        "label": "收起信件，前往北门",
+        "intent": "接受蓝印指引，推动主线向黑塔方向展开。",
         "direction": "left",
-        "nextMainlineNodeId": "",
-        "statHint": { "life": 8, "force": -4, "wealth": -8, "faith": 2 }
+        "nextMainlineNodeId": "ch002_anchor_02",
+        "statHint": {
+          "life": 0,
+          "force": 0,
+          "wealth": 0,
+          "faith": 5
+        }
       },
       "rightChoice": {
-        "id": "reject_treaty",
-        "label": "拒绝使者",
-        "intent": "保住矿山，但战争阴影逼近。",
+        "id": "deviate_branch",
+        "label": "查阅旧邮差手册",
+        "intent": "暂缓出发，寻找蓝色邮印的来历与禁忌。",
         "direction": "right",
         "nextMainlineNodeId": "",
-        "statHint": { "life": -6, "force": 8, "wealth": 7, "faith": -6 }
-      }
+        "statHint": {
+          "life": 0,
+          "force": 0,
+          "wealth": 0,
+          "faith": 3
+        }
+      },
+      "mainlineIndex": 3
+    },
+    {
+      "id": "ch002_anchor_02",
+      "chapterId": "ch002",
+      "title": "封雪北门",
+      "body": "北门被雪埋到门栓，守夜兵缩在火盆旁，声称今夜无人准出。沈砚亮出邮差铜牌时，城墙上却传来三下空洞敲击。",
+      "imageRef": "queen",
+      "nodeKind": 0,
+      "leftChoice": {
+        "id": "deviate_branch",
+        "label": "说服守夜兵同行",
+        "intent": "尝试争取援手，可能开启城防与守夜兵支线。",
+        "direction": "left",
+        "nextMainlineNodeId": "",
+        "statHint": {
+          "life": 5,
+          "force": 0,
+          "wealth": -2,
+          "faith": 0
+        }
+      },
+      "rightChoice": {
+        "id": "continue_mainline",
+        "label": "循敲击声翻越侧墙",
+        "intent": "绕开北门封锁，继续向黑塔推进。",
+        "direction": "right",
+        "nextMainlineNodeId": "ch002_anchor_03",
+        "statHint": {
+          "life": -5,
+          "force": 3,
+          "wealth": 0,
+          "faith": 0
+        }
+      },
+      "mainlineIndex": 4
+    },
+    {
+      "id": "ch002_anchor_03",
+      "chapterId": "ch002",
+      "title": "雪路灯影",
+      "body": "城外雪原没有车辙，只有一排倒插在雪里的黑色路灯。每当沈砚靠近，灯中便亮起蓝火，照出信封上逐渐清晰的收件名。",
+      "imageRef": "oracle",
+      "nodeKind": 0,
+      "leftChoice": {
+        "id": "continue_mainline",
+        "label": "沿蓝火继续前行",
+        "intent": "跟随邮印与路灯指示，逼近黑塔入口。",
+        "direction": "left",
+        "nextMainlineNodeId": "ch003_anchor_01",
+        "statHint": {
+          "life": -3,
+          "force": 0,
+          "wealth": 0,
+          "faith": 6
+        }
+      },
+      "rightChoice": {
+        "id": "deviate_branch",
+        "label": "拔起一盏黑路灯",
+        "intent": "调查路灯机关，可能触发雪原异象分支。",
+        "direction": "right",
+        "nextMainlineNodeId": "",
+        "statHint": {
+          "life": -4,
+          "force": 4,
+          "wealth": 0,
+          "faith": -2
+        }
+      },
+      "mainlineIndex": 5
+    },
+    {
+      "id": "ch003_anchor_01",
+      "chapterId": "ch003",
+      "title": "旧规矩",
+      "body": "沈砚在塔门前停住，指尖还压着那封潮冷的信。老柯的话忽然回响：黑塔的规矩不是给死人听的，是给活人留路的。风雪擦过石阶，像有人在暗处轻轻催他回头。",
+      "imageRef": "gate",
+      "nodeKind": 0,
+      "leftChoice": {
+        "id": "continue_mainline",
+        "label": "按老柯规矩折返",
+        "intent": "沈砚暂不入塔，沿来路确认自己仍在活人的路上。",
+        "direction": "left",
+        "nextMainlineNodeId": "ch003_anchor_02",
+        "statHint": {
+          "life": 5,
+          "force": 0,
+          "wealth": 0,
+          "faith": 3
+        }
+      },
+      "rightChoice": {
+        "id": "deviate_branch",
+        "label": "立刻推门入塔",
+        "intent": "沈砚违背旧规矩，提前进入黑塔探查信的来源。",
+        "direction": "right",
+        "nextMainlineNodeId": "",
+        "statHint": {
+          "life": -6,
+          "force": 2,
+          "wealth": 0,
+          "faith": -3
+        }
+      },
+      "mainlineIndex": 6
+    },
+    {
+      "id": "ch003_anchor_02",
+      "chapterId": "ch003",
+      "title": "反向脚印",
+      "body": "他刚退下三级石阶，雪地里便浮出一串脚印，方向与他的来路相反。那些印子从塔门延伸到荒原，深浅整齐，仿佛有人刚从黑塔走出，却没有留下半点体温。",
+      "imageRef": "queen",
+      "nodeKind": 0,
+      "leftChoice": {
+        "id": "deviate_branch",
+        "label": "抹去脚印保命",
+        "intent": "沈砚选择破坏线索，优先避免被塔中之物循迹盯上。",
+        "direction": "left",
+        "nextMainlineNodeId": "",
+        "statHint": {
+          "life": 4,
+          "force": 0,
+          "wealth": 0,
+          "faith": -4
+        }
+      },
+      "rightChoice": {
+        "id": "continue_mainline",
+        "label": "沿反向脚印追去",
+        "intent": "沈砚跟随脚印离开塔门，寻找那个从塔中走出的存在。",
+        "direction": "right",
+        "nextMainlineNodeId": "ch003_anchor_03",
+        "statHint": {
+          "life": -3,
+          "force": 0,
+          "wealth": 0,
+          "faith": 5
+        }
+      },
+      "mainlineIndex": 7
+    },
+    {
+      "id": "ch003_anchor_03",
+      "chapterId": "ch003",
+      "title": "信中归途",
+      "body": "脚印尽头埋着一枚旧铜扣，正是老柯衣襟上的样式。信纸在沈砚怀里微微发热，墨迹却一点点变淡，像有个亡者借他的手，试着把回家的路重新写出来。",
+      "imageRef": "oracle",
+      "nodeKind": 0,
+      "leftChoice": {
+        "id": "continue_mainline",
+        "label": "收起铜扣继续查",
+        "intent": "沈砚保留证物，准备查明老柯旧物为何出现在脚印尽头。",
+        "direction": "left",
+        "nextMainlineNodeId": "ch004_anchor_01",
+        "statHint": {
+          "life": 0,
+          "force": 0,
+          "wealth": 0,
+          "faith": 4
+        }
+      },
+      "rightChoice": {
+        "id": "deviate_branch",
+        "label": "把信埋回雪下",
+        "intent": "沈砚尝试切断亡者借信归来的可能，换取暂时安宁。",
+        "direction": "right",
+        "nextMainlineNodeId": "",
+        "statHint": {
+          "life": 3,
+          "force": 0,
+          "wealth": 0,
+          "faith": -5
+        }
+      },
+      "mainlineIndex": 8
+    },
+    {
+      "id": "ch004_anchor_01",
+      "chapterId": "ch004",
+      "title": "塔下蓝息",
+      "body": "沈砚抵达黑塔脚下，石壁没有门环也没有窗，只在裂缝里吐出微弱蓝光。信件贴着掌心变冷，封口内传来三下敲击，像有人在纸后等他回应。",
+      "imageRef": "gate",
+      "nodeKind": 0,
+      "leftChoice": {
+        "id": "continue_mainline",
+        "label": "贴近石缝倾听",
+        "intent": "继续调查蓝光与敲击的来源，推进黑塔主线。",
+        "direction": "left",
+        "nextMainlineNodeId": "ch004_anchor_02",
+        "statHint": {
+          "life": 0,
+          "force": 0,
+          "wealth": 0,
+          "faith": 2
+        }
+      },
+      "rightChoice": {
+        "id": "deviate_branch",
+        "label": "先绕塔一周",
+        "intent": "寻找隐藏入口或旁支线索，可能偏离当前节奏。",
+        "direction": "right",
+        "nextMainlineNodeId": "",
+        "statHint": {
+          "life": 0,
+          "force": 0,
+          "wealth": 0,
+          "faith": 0
+        }
+      },
+      "mainlineIndex": 9
+    },
+    {
+      "id": "ch004_anchor_02",
+      "chapterId": "ch004",
+      "title": "冷信低语",
+      "body": "他把信举到蓝光前，蜡封下浮出细小字痕，又迅速沉没。塔身深处响起锁链拖行声，仿佛某段被遗忘的记忆正被牵到门后。",
+      "imageRef": "queen",
+      "nodeKind": 0,
+      "leftChoice": {
+        "id": "deviate_branch",
+        "label": "撬开蜡封",
+        "intent": "强行读取信中内容，引出风险分支或记忆反噬。",
+        "direction": "left",
+        "nextMainlineNodeId": "",
+        "statHint": {
+          "life": -2,
+          "force": 1,
+          "wealth": 0,
+          "faith": -1
+        }
+      },
+      "rightChoice": {
+        "id": "continue_mainline",
+        "label": "按住封口等待",
+        "intent": "遵循信件的异常节奏，等待黑塔给出回应。",
+        "direction": "right",
+        "nextMainlineNodeId": "ch004_anchor_03",
+        "statHint": {
+          "life": 0,
+          "force": 0,
+          "wealth": 0,
+          "faith": 3
+        }
+      },
+      "mainlineIndex": 10
+    },
+    {
+      "id": "ch004_anchor_03",
+      "chapterId": "ch004",
+      "title": "无门之门",
+      "body": "蓝光忽然在石缝间连成一圈，勾出一扇没有把手的门。沈砚听见自己的名字从塔内传来，声音苍老而熟悉，像多年后归来的回声。",
+      "imageRef": "oracle",
+      "nodeKind": 0,
+      "leftChoice": {
+        "id": "continue_mainline",
+        "label": "把信贴上门缝",
+        "intent": "用信件回应塔内呼唤，开启进入黑塔的主线。",
+        "direction": "left",
+        "nextMainlineNodeId": "ch005_anchor_01",
+        "statHint": {
+          "life": 0,
+          "force": 0,
+          "wealth": 0,
+          "faith": 4
+        }
+      },
+      "rightChoice": {
+        "id": "deviate_branch",
+        "label": "后退呼喊对方",
+        "intent": "尝试在门外确认声音身份，生成对话或陷阱分支。",
+        "direction": "right",
+        "nextMainlineNodeId": "",
+        "statHint": {
+          "life": 0,
+          "force": 0,
+          "wealth": 0,
+          "faith": 1
+        }
+      },
+      "mainlineIndex": 11
+    },
+    {
+      "id": "ch005_anchor_01",
+      "chapterId": "ch005",
+      "title": "塔门蓝灯",
+      "body": "沈砚站在黑塔门前，老柯的禁令还压在耳边。蓝灯忽然照亮信封背面，陌生地址像从纸里浮起，不在任何街巷，却写着收信人的全名。",
+      "imageRef": "gate",
+      "nodeKind": 0,
+      "leftChoice": {
+        "id": "continue_mainline",
+        "label": "遵守邮差职责",
+        "intent": "无视禁令，按地址投递这封信。",
+        "direction": "left",
+        "nextMainlineNodeId": "ch005_anchor_02",
+        "statHint": {
+          "life": -2,
+          "force": 0,
+          "wealth": 0,
+          "faith": 5
+        }
+      },
+      "rightChoice": {
+        "id": "deviate_branch",
+        "label": "转身找老柯",
+        "intent": "先回去质问老柯地址的真相。",
+        "direction": "right",
+        "nextMainlineNodeId": "",
+        "statHint": {
+          "life": 1,
+          "force": 0,
+          "wealth": 0,
+          "faith": -2
+        }
+      },
+      "mainlineIndex": 12
+    },
+    {
+      "id": "ch005_anchor_02",
+      "chapterId": "ch005",
+      "title": "无街之址",
+      "body": "信封上的字迹在冷光中变换，最后停成“第七碑后，未葬者门”。沈砚想起夜邮册缺失的一页，忽然明白这趟差事不是送往城中人。",
+      "imageRef": "queen",
+      "nodeKind": 0,
+      "leftChoice": {
+        "id": "deviate_branch",
+        "label": "查夜邮册残页",
+        "intent": "暂缓投递，寻找缺失页的线索。",
+        "direction": "left",
+        "nextMainlineNodeId": "",
+        "statHint": {
+          "life": 0,
+          "force": 0,
+          "wealth": -1,
+          "faith": 1
+        }
+      },
+      "rightChoice": {
+        "id": "continue_mainline",
+        "label": "前往第七碑",
+        "intent": "接受地址指引，去寻找未葬者门。",
+        "direction": "right",
+        "nextMainlineNodeId": "ch005_anchor_03",
+        "statHint": {
+          "life": -3,
+          "force": 0,
+          "wealth": 0,
+          "faith": 6
+        }
+      },
+      "mainlineIndex": 13
+    },
+    {
+      "id": "ch005_anchor_03",
+      "chapterId": "ch005",
+      "title": "门内回声",
+      "body": "塔门缝里传来轻轻叩响，像有人在门后接信。沈砚把手贴上冰冷铁环，听见自己的名字被亡者念出，夜邮真正的路终于向他开启。",
+      "imageRef": "oracle",
+      "nodeKind": 0,
+      "leftChoice": {
+        "id": "continue_mainline",
+        "label": "推门递信",
+        "intent": "直面门后的亡者，完成第一次真正夜邮。",
+        "direction": "left",
+        "nextMainlineNodeId": "",
+        "statHint": {
+          "life": -4,
+          "force": 0,
+          "wealth": 0,
+          "faith": 8
+        }
+      },
+      "rightChoice": {
+        "id": "deviate_branch",
+        "label": "留下记号再进",
+        "intent": "先在塔门外做标记，防止自己迷失。",
+        "direction": "right",
+        "nextMainlineNodeId": "",
+        "statHint": {
+          "life": 2,
+          "force": 0,
+          "wealth": 0,
+          "faith": -1
+        }
+      },
+      "mainlineIndex": 14
     }
   ]
 }

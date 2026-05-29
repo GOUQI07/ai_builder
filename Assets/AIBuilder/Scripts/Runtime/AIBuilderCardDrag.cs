@@ -1,26 +1,29 @@
 using System;
 using UnityEngine;
-#if ENABLE_INPUT_SYSTEM
-using UnityEngine.InputSystem;
-#endif
+using UnityEngine.EventSystems;
 
 namespace AIBuilder
 {
-    public sealed class AIBuilderCardDrag : MonoBehaviour
+    public sealed class AIBuilderCardDrag : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
     {
         public Action<float> OnDragChanged;
         public Action<int> OnSwipeCompleted;
 
-        [SerializeField] private float followRange = 155f;
+        [SerializeField] private float followRange = 210f;
+        [SerializeField] private float releaseThreshold = 0.58f;
         [SerializeField] private float clickDeadZone = 0.08f;
-        [SerializeField] private float maxTilt = 8f;
-        [SerializeField] private float followSmoothing = 18f;
+        [SerializeField] private float sideTapZone = 0.22f;
+        [SerializeField] private float tapMaxDistance = 12f;
+        [SerializeField] private float maxTilt = 9f;
+        [SerializeField] private float settleSmoothing = 18f;
 
         private RectTransform rectTransform;
         private Vector2 startPosition;
+        private Vector2 pointerStartScreen;
         private float currentProgress;
         private int lastDirection = 1;
         private bool interactable = true;
+        private bool pointerActive;
         private bool submitted;
 
         private void Awake()
@@ -31,13 +34,44 @@ namespace AIBuilder
 
         private void Update()
         {
+            if (!interactable || submitted || pointerActive)
+            {
+                return;
+            }
+
+            if (Mathf.Abs(currentProgress) <= 0.001f)
+            {
+                return;
+            }
+
+            currentProgress = Mathf.Lerp(currentProgress, 0f, 1f - Mathf.Exp(-settleSmoothing * Time.deltaTime));
+            ApplyProgress(currentProgress);
+            OnDragChanged?.Invoke(currentProgress);
+        }
+
+        public void OnPointerDown(PointerEventData eventData)
+        {
             if (!interactable || submitted)
             {
                 return;
             }
 
-            var targetProgress = GetPointerProgress();
-            currentProgress = Mathf.Lerp(currentProgress, targetProgress, 1f - Mathf.Exp(-followSmoothing * Time.deltaTime));
+            pointerActive = true;
+            pointerStartScreen = eventData.position;
+            currentProgress = 0f;
+            ApplyProgress(currentProgress);
+            OnDragChanged?.Invoke(currentProgress);
+        }
+
+        public void OnDrag(PointerEventData eventData)
+        {
+            if (!interactable || submitted || !pointerActive)
+            {
+                return;
+            }
+
+            var dragWidth = Mathf.Max(80f, Screen.width * 0.28f);
+            currentProgress = Mathf.Clamp((eventData.position.x - pointerStartScreen.x) / dragWidth, -1f, 1f);
             if (Mathf.Abs(currentProgress) > clickDeadZone)
             {
                 lastDirection = currentProgress < 0f ? -1 : 1;
@@ -45,11 +79,30 @@ namespace AIBuilder
 
             ApplyProgress(currentProgress);
             OnDragChanged?.Invoke(currentProgress);
+        }
 
-            if (WasPrimaryPressedThisFrame())
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            if (!interactable || submitted || !pointerActive)
             {
-                ConfirmCurrentSide();
+                return;
             }
+
+            pointerActive = false;
+            var releaseDelta = eventData.position - pointerStartScreen;
+            if (Mathf.Abs(currentProgress) >= releaseThreshold)
+            {
+                ConfirmDirection(currentProgress < 0f ? -1 : 1);
+                return;
+            }
+
+            if (releaseDelta.magnitude <= tapMaxDistance && TryGetSideTapDirection(eventData.position, out var direction))
+            {
+                ConfirmDirection(direction);
+                return;
+            }
+
+            ResetCard();
         }
 
         public void SetInteractable(bool value)
@@ -57,6 +110,7 @@ namespace AIBuilder
             interactable = value;
             if (!value)
             {
+                pointerActive = false;
                 OnDragChanged?.Invoke(0f);
             }
         }
@@ -69,41 +123,29 @@ namespace AIBuilder
             }
 
             submitted = false;
+            pointerActive = false;
             currentProgress = 0f;
             rectTransform.anchoredPosition = startPosition;
             rectTransform.localRotation = Quaternion.identity;
             OnDragChanged?.Invoke(0f);
         }
 
-        private float GetPointerProgress()
+        private bool TryGetSideTapDirection(Vector2 screenPosition, out int direction)
         {
-#if ENABLE_INPUT_SYSTEM
-            var mouse = Mouse.current;
-            if (mouse == null)
-            {
-                return 0f;
-            }
-
-            var screenX = mouse.position.ReadValue().x;
-#else
-            var screenX = Input.mousePosition.x;
-#endif
+            direction = 0;
             if (Screen.width <= 0)
             {
-                return 0f;
+                return false;
             }
 
-            return Mathf.Clamp(((screenX / Screen.width) - 0.5f) * 2.15f, -1f, 1f);
-        }
+            var normalized = (screenPosition.x / Screen.width) - 0.5f;
+            if (Mathf.Abs(normalized) < sideTapZone)
+            {
+                return false;
+            }
 
-        private bool WasPrimaryPressedThisFrame()
-        {
-#if ENABLE_INPUT_SYSTEM
-            var mouse = Mouse.current;
-            return mouse != null && mouse.leftButton.wasPressedThisFrame;
-#else
-            return Input.GetMouseButtonDown(0);
-#endif
+            direction = normalized < 0f ? -1 : 1;
+            return true;
         }
 
         private void ApplyProgress(float progress)
@@ -113,10 +155,13 @@ namespace AIBuilder
             rectTransform.localRotation = Quaternion.Euler(0f, 0f, -eased * maxTilt);
         }
 
-        private void ConfirmCurrentSide()
+        private void ConfirmDirection(int direction)
         {
-            var direction = Mathf.Abs(currentProgress) <= clickDeadZone ? lastDirection : currentProgress < 0f ? -1 : 1;
+            direction = direction < 0 ? -1 : 1;
+            lastDirection = direction;
+            currentProgress = direction;
             submitted = true;
+            pointerActive = false;
             interactable = false;
             rectTransform.anchoredPosition = startPosition + new Vector2(direction * (followRange * 0.72f), -10f);
             rectTransform.localRotation = Quaternion.Euler(0f, 0f, -direction * maxTilt);
