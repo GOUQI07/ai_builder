@@ -718,6 +718,17 @@ namespace AIBuilder
                 return await fallback.GenerateNextNodeAsync(context, choice, stats, cancellationToken);
             }
 
+            var streamedStoryText = "";
+            Action<string> streamStoryText = text =>
+            {
+                if (!string.IsNullOrWhiteSpace(text))
+                {
+                    streamedStoryText = text;
+                }
+
+                onStoryText?.Invoke(text);
+            };
+
             try
             {
                 using var timeout = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
@@ -734,21 +745,39 @@ namespace AIBuilder
                 var text = await PostJsonStreamingAsync(
                     BuildEndpointUrl(settings),
                     payload,
-                    onStoryText,
+                    streamStoryText,
                     timeout.Token,
                     Mathf.Max(5, settings.timeoutSeconds));
                 if (TryParseTextResult(text, out var result))
                 {
                     return result;
                 }
+
+                if (TryBuildPartialStreamingResult(context, choice, streamedStoryText, out var partialResult))
+                {
+                    return partialResult;
+                }
+            }
+            catch (OperationCanceledException) when (cancellationToken.IsCancellationRequested)
+            {
+                throw;
             }
             catch (Exception ex)
             {
+                if (TryBuildPartialStreamingResult(context, choice, streamedStoryText, out var partialResult))
+                {
+                    return partialResult;
+                }
+
                 Debug.LogWarning($"AI Builder streaming text generation fell back to non-streaming text: {ex.Message}");
             }
 
             var fallbackResult = await GenerateNextNodeAsync(context, choice, stats, cancellationToken);
-            onStoryText?.Invoke(fallbackResult.storyText);
+            if (!IsMockTextResult(fallbackResult))
+            {
+                onStoryText?.Invoke(fallbackResult.storyText);
+            }
+
             return fallbackResult;
         }
 
@@ -948,6 +977,41 @@ namespace AIBuilder
             }
 
             return "";
+        }
+
+        private static bool TryBuildPartialStreamingResult(StoryNode context, ChoiceOption choice, string streamedStoryText, out AiTextResult result)
+        {
+            result = null;
+            var storyText = CompactGeneratedText(streamedStoryText, 160);
+            if (string.IsNullOrWhiteSpace(storyText))
+            {
+                return false;
+            }
+
+            result = new AiTextResult
+            {
+                storyText = storyText,
+                leftChoice = string.IsNullOrWhiteSpace(choice?.label) ? "继续追问" : choice.label,
+                rightChoice = "回到主线",
+                statDelta = new PlayerStats(0, 0, 0, 0),
+                imagePrompt = $"symbolic low-poly branch card, {context?.title}, {choice?.label}, muted medieval palette",
+                panoramaPrompt = $"wide low-poly medieval panorama, {context?.chapterId}, {context?.title}, {choice?.label}, layered horizon",
+                locationTag = context?.chapterId ?? "streaming",
+                moodTag = "streaming",
+                majorEventTag = choice?.id ?? "choice",
+                summaryTags = new List<string> { "streaming", "partial", choice?.id ?? "choice" }
+            };
+            SanitizeTextResult(result);
+            return true;
+        }
+
+        private static bool IsMockTextResult(AiTextResult result)
+        {
+            return result != null
+                   && ((result.summaryTags != null
+                        && result.summaryTags.Any(tag => string.Equals(tag, "mock", StringComparison.OrdinalIgnoreCase)))
+                       || (!string.IsNullOrWhiteSpace(result.storyText)
+                           && result.storyText.TrimStart().StartsWith("Mock branch after", StringComparison.OrdinalIgnoreCase)));
         }
 
         private static void SanitizeTextResult(AiTextResult result)

@@ -23,6 +23,7 @@ namespace AIBuilder
         private const int RuntimeImageConcurrency = 4;
         private const int PanoramaBackfillWindow = 18;
         private const float BranchPredictionDragThreshold = 0.42f;
+        private const int BranchStreamingFirstTextWindowMs = 900;
         private const int StatImpactMinInterval = 2;
         private const int StatImpactMaxInterval = 3;
         private const int ImmediateStatDeltaLimit = 4;
@@ -871,15 +872,42 @@ namespace AIBuilder
                 }
             }
 
-            var entry = await GetOrCreateBranchEntryAsync(
-                sourceNode,
-                choice,
-                stats.Clone(),
-                naturalNext,
-                cacheKey,
-                null,
-                cancellationToken,
-                true);
+            NodeCacheEntry entry;
+            var acceptStreamingText = true;
+            var streamingShown = false;
+            Action<string> onStoryText = text =>
+            {
+                if (!acceptStreamingText || string.IsNullOrWhiteSpace(text))
+                {
+                    return;
+                }
+
+                if (!streamingShown)
+                {
+                    streamingShown = true;
+                    ShowStreamingBranchStart(sourceNode, choice, cacheKey);
+                }
+
+                UpdateStreamingBranchText(cacheKey, text);
+            };
+
+            try
+            {
+                entry = await GetOrCreateBranchEntryAsync(
+                    sourceNode,
+                    choice,
+                    stats.Clone(),
+                    naturalNext,
+                    cacheKey,
+                    onStoryText,
+                    cancellationToken,
+                    true);
+            }
+            finally
+            {
+                acceptStreamingText = false;
+            }
+
             if (entry == null)
             {
                 return;
@@ -1300,8 +1328,25 @@ namespace AIBuilder
                 }
             }
 
-            var task = EnsureBranchTextPrediction(sourceNode, choice, statsSnapshot, naturalNext, cacheKey, 95, "choice_submit", cancellationToken, allowOverwriteDraft, onStoryText);
-            return await AwaitBranchEntryOrDraftAsync(task, sourceNode, choice, naturalNext, cacheKey, cancellationToken);
+            Task firstStoryTextTask = null;
+            var storyTextHandler = onStoryText;
+            if (onStoryText != null)
+            {
+                var firstStoryTextSource = new TaskCompletionSource<bool>();
+                firstStoryTextTask = firstStoryTextSource.Task;
+                storyTextHandler = text =>
+                {
+                    if (!string.IsNullOrWhiteSpace(text))
+                    {
+                        firstStoryTextSource.TrySetResult(true);
+                    }
+
+                    onStoryText(text);
+                };
+            }
+
+            var task = EnsureBranchTextPrediction(sourceNode, choice, statsSnapshot, naturalNext, cacheKey, 95, "choice_submit", cancellationToken, allowOverwriteDraft, storyTextHandler);
+            return await AwaitBranchEntryOrDraftAsync(task, sourceNode, choice, naturalNext, cacheKey, firstStoryTextTask, cancellationToken);
         }
 
         private Task<NodeCacheEntry> EnsureBranchTextPrediction(
@@ -1348,6 +1393,7 @@ namespace AIBuilder
                 return AttachStreamingListener(cacheKey, runningTask, onStoryText);
             }
 
+            streamingStoryTextByKey.Remove(cacheKey);
             var task = GenerateAndCacheBranchAsync(sourceNode, choice, statsSnapshot, naturalNext, cacheKey, priority, reason, cancellationToken, allowOverwriteDraft);
             textPredictionTasks[cacheKey] = task;
             _ = ForgetTextPredictionAsync(cacheKey, task);
@@ -1491,6 +1537,12 @@ namespace AIBuilder
                     return null;
                 }
 
+                if (IsProviderFallbackTextResult(aiResult))
+                {
+                    Debug.LogWarning("AI Builder text service reached mock fallback; keeping the draft placeholder instead of caching mock text as generated AI content.");
+                    return CreateAndCacheDraftEntry(sourceNode, choice, naturalNext, cacheKey);
+                }
+
                 var branch = CreateBranchNode(sourceNode, aiResult, choice, naturalNext);
                 var entry = CreateCacheEntry(sourceNode, choice, aiResult, branch, cacheKey);
                 AttachReadyImage(entry);
@@ -1524,7 +1576,7 @@ namespace AIBuilder
             }
         }
 
-        private static bool IsDraftEntry(NodeCacheEntry entry)
+        private bool IsDraftEntry(NodeCacheEntry entry)
         {
             if (entry == null)
             {
@@ -1532,7 +1584,33 @@ namespace AIBuilder
             }
 
             return string.Equals(entry.textStatus, NodeTextStatuses.Draft, StringComparison.OrdinalIgnoreCase)
-                   || string.Equals(entry.textStatus, NodeTextStatuses.Generating, StringComparison.OrdinalIgnoreCase);
+                   || string.Equals(entry.textStatus, NodeTextStatuses.Generating, StringComparison.OrdinalIgnoreCase)
+                   || IsProviderFallbackCacheEntry(entry);
+        }
+
+        private bool IsProviderFallbackTextResult(AiTextResult result)
+        {
+            return providerSettings != null
+                   && providerSettings.CanUseText
+                   && IsMockTextResult(result);
+        }
+
+        private bool IsProviderFallbackCacheEntry(NodeCacheEntry entry)
+        {
+            return providerSettings != null
+                   && providerSettings.CanUseText
+                   && entry?.resultNode != null
+                   && !string.IsNullOrWhiteSpace(entry.resultNode.body)
+                   && entry.resultNode.body.TrimStart().StartsWith("Mock branch after", StringComparison.OrdinalIgnoreCase);
+        }
+
+        private static bool IsMockTextResult(AiTextResult result)
+        {
+            return result != null
+                   && ((result.summaryTags != null
+                        && result.summaryTags.Any(tag => string.Equals(tag, "mock", StringComparison.OrdinalIgnoreCase)))
+                       || (!string.IsNullOrWhiteSpace(result.storyText)
+                           && result.storyText.TrimStart().StartsWith("Mock branch after", StringComparison.OrdinalIgnoreCase)));
         }
 
         private StoryNode CreateDraftBranchNode(StoryNode sourceNode, ChoiceOption sourceChoice, StoryNode nextMainline, string cacheKey)
@@ -2247,6 +2325,7 @@ namespace AIBuilder
             ChoiceOption choice,
             StoryNode naturalNext,
             string cacheKey,
+            Task firstStoryTextTask,
             CancellationToken cancellationToken)
         {
             if (task == null)
@@ -2261,7 +2340,25 @@ namespace AIBuilder
                     return await ResolveBranchTaskOrDraftAsync(task, sourceNode, choice, naturalNext, cacheKey, cancellationToken);
                 }
 
-                Debug.Log("AI Builder branch text is still streaming; showing a draft branch now and caching the generated result when it finishes.");
+                if (firstStoryTextTask != null)
+                {
+                    var firstTextWindow = Task.Delay(BranchStreamingFirstTextWindowMs, cancellationToken);
+                    var completed = await Task.WhenAny(task, firstStoryTextTask, firstTextWindow);
+                    cancellationToken.ThrowIfCancellationRequested();
+
+                    if (completed == task)
+                    {
+                        return await ResolveBranchTaskOrDraftAsync(task, sourceNode, choice, naturalNext, cacheKey, cancellationToken);
+                    }
+
+                    if (completed == firstStoryTextTask)
+                    {
+                        Debug.Log("AI Builder branch text started streaming; waiting for generated AI content instead of showing a mock draft.");
+                        return await ResolveBranchTaskOrDraftAsync(task, sourceNode, choice, naturalNext, cacheKey, cancellationToken);
+                    }
+                }
+
+                Debug.Log("AI Builder branch text has not started streaming yet; showing a draft branch now and caching the generated result when it finishes.");
                 return CreateAndCacheDraftEntry(sourceNode, choice, naturalNext, cacheKey);
             }
             catch (OperationCanceledException) when (cancellationToken.IsCancellationRequested)
